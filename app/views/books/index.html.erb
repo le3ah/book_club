@@ -2,6 +2,10 @@
 
 <% @books.each do |book| %>
 <h2><%= book.title%></h2>
-<p>Author: <%= book.author %></p>
 <p>Pages: <%= book.pages %></p>
+<p>Year: <%= book.year %></p>
+<img src=<%= book.thumbnail %> alt="picture of book">
+<% book.authors.each do |author| %>
+<p><%= author.name %></p>
+<% end %>
 <% end %>
