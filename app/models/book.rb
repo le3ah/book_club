@@ -1,2 +1,3 @@
 class Book < ApplicationRecord
-end 
+  validates_presence_of :title, :pages, :year
+end
