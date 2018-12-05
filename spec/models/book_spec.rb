@@ -6,4 +6,11 @@ describe Book, type: :model do
     it {should validate_presence_of(:pages)}
     it {should validate_presence_of(:year)}
   end
+
+  describe "relationships" do
+    it {should have_many(:book_authors)}
+    it {should have_many(:reviews)}
+    it {should have_many(:authors).through(:book_authors)}
+    it {should have_many(:users).through(:reviews)}
+  end
 end
