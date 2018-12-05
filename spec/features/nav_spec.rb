@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'nav' do
-  xit 'should link to appropriate page' do
+  it 'should link to appropriate page' do
 
     visit root_path
     click_link "books"
