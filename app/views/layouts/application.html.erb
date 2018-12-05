@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="stylesheets/main.css" type="text/css" />
     <title>BookClub</title>
     <%= csrf_meta_tags %>
 
@@ -9,7 +10,12 @@
   </head>
 
   <body>
-    
+    <div class="navbar">
+      <ul>
+        <li><%= link_to "books", books_path %></li>
+        <li><%= link_to "home", root_path %></li>
+      </ul>
+    </div>
     <%= yield %>
   </body>
 </html>
