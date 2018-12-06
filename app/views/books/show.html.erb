@@ -1,1 +1,12 @@
 <%=  @book.title %>
+<%=  @book.pages %>
+<% @book.authors.each do |author| %>
+<%= author.name %>
+<% end %>
+
+<% @book.reviews.each do |review| %>
+<%= review.title %>
+<%= review.user.name %>
+<%= review.rating %>
+<%= review.description %>
+<% end %>
