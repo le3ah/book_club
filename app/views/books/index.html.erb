@@ -6,6 +6,6 @@
 <p>Year: <%= book.year %></p>
 <img src=<%= book.thumbnail %> alt="picture of book">
 <% book.authors.each do |author| %>
-<p><%= author.name %></p>
+<p><%= link_to "#{author.name}", author_path(author) %></p>
 <% end %>
 <% end %>
