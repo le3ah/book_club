@@ -86,8 +86,9 @@ user_11 = User.create(name: "Jackson5")
 review_11 = user_11.reviews.create(title: "Feeling Immortal", description: "Enjoyed every page.", rating: 5, book: book_11)
 
 
-
 book_12 = Book.create(title: "The Woman in the Window", pages: 240, year: 2018, thumbnail: "https://images-na.ssl-images-amazon.com/images/I/91ulS5E%2BmXL.jpg")
 author_12 = book_12.authors.create(name: "A.J. Finn")
 user_12 = User.create(name: "Roberts' Bookshelf")
 review_12 = user_12.reviews.create(title: "Meh", description: "just okay", rating: 2, book: book_12)
+
+book_13 = Book.create(title: "Unlikely Pair", pages: 135, year: 1776, authors:[author_1, author_2])
