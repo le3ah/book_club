@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   # get '/books', to: 'books#index'
 
-  resources :books, :only => [:index, :show]
+  resources :books, :only => [:index, :show, :new, :create]
   resources :authors, :only => [:show]
   resources :users, :only => [:index, :show]
 end
