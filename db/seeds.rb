@@ -16,7 +16,9 @@ User.destroy_all
 book_1 = Book.create(title: "Kiss the Girls", pages: 464, year: 1995, thumbnail: "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Kiss_The_Girls_book_cover.jpg/220px-Kiss_The_Girls_book_cover.jpg")
 author_1 = book_1.authors.create(name: "James Patterson")
 user_1 = User.create(name: "MicJagger")
+user_14 = User.create(name: "Aaron")
 review_1 = user_1.reviews.create(title: "Great Read!", description: "Wow!! Pleasantly surprised.", rating: 5, book: book_1)
+review_20 = user_14.reviews.create(title: "He's the best", description: "I never miss one of his books", rating: 5, book: book_1)
 
 book_2 = Book.create(title: "The Hiding Place", pages: 241, year: 1971, thumbnail: "https://g.christianbook.com/dg/product/cbd/f400/56696.jpg")
 author_2 = book_2.authors.create(name: "Corrie Ten Boom")
@@ -51,30 +53,31 @@ review_6 = user_6.reviews.create(title: "Hilarious", description: "I laughed, bu
 
 book_7 = Book.create(title: "Ethan the Raindrop", pages: 26, year: 2015, thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51LhoDAfIlL._SX258_BO1,204,203,200_.jpg")
 author_7 = book_7.authors.create(name: "Sean Patrick Guidera")
-user_7 = User.create(name: "KellytheGreen")
+user_7 = User.create(name: "Leah")
+user_13 = User.create(name: "Grandma Jan")
 review_7 = user_7.reviews.create(title: "Sweet", description: "Clever and heart-warming.  Will read again.", rating: 5, book: book_7)
-
-
+review_13 = user_13.reviews.create(title: "Special", description: "Bought this as a gift for my grandson Ethan. He enjoyed it very much and I was touched by its insightful, gentle storyline. Beautiful book!", rating: 5, book: book_7)
+review_14 = user_6.revieww.create(title: "insightful", description: "I would recommend this book as a gift for children or an adult who is having some trouble enjoying the ride!", rating: 5, book: book_7)
 
 book_8 = Book.create(title: "Lincoln in the Bardo", pages: 368, year: 2017, thumbnail: "https://i.mgtbk.nl/boeken/9780525511083-480x600.jpg")
 author_8 = book_8.authors.create(name: "George Saunders")
 user_8 = User.create(name: "metalfloss23")
 review_8 = user_8.reviews.create(title: "Yikes", description: "Why did I even try this?", rating: 1, book: book_8)
-
-
+review_15 = user_1.reviews.create(title: "Lovely Read", description: "I think this would work even better as a stage play, somewhat reminiscent of Our Town, and in this sense I think an audio recording of the novel, if done well, might be the best way to experience this work.", rating: 5, book: book_8)
+review_16 = user_2.reviews.create(title: "Absolutely Yes", description: "Much anticipated is the phrase you’ll probably hear most. What that should tell you is that Saunders has a strong fan base.", rating: 4, book: book_8)
 
 book_9 = Book.create(title: "There There", pages: 304, year: 2018, thumbnail: "https://images-na.ssl-images-amazon.com/images/I/91lKQ1w00DL.jpg")
 author_9 = book_9.authors.create(name: "Tommy Orange")
 user_9 = User.create(name: "June1987")
 review_9 = user_9.reviews.create(title: "Too much", description: "Couldn't read after the first chapter.", rating: 2, book: book_9)
-
-
+review_17 = user_3.reviews.create(title: "White hot", description: "A devastating debut nobvel.  Masterful.", rating: 4, book: book_9)
+review_18 = user_4.reviews.create(title: "Gripping", description: "Deep dive into urban indigenous life.", rating: 3, book: book_9)
 
 book_10 = Book.create(title: "Warlight", pages: 304, year: 2018, thumbnail: "https://images-na.ssl-images-amazon.com/images/I/41hW%2BnDBJ7L._SX360_BO1,204,203,200_.jpg")
 author_10 = book_10.authors.create(name: "Michael Ondaatje")
 user_10 = User.create(name: "BillieMeyers")
 review_10 = user_10.reviews.create(title: "Once is enough.", description: "Not bad, just not what I wanted.", rating: 3, book: book_10)
-
+review_19 = user_4.reviews.create(title: "Sweeping", description: "Subtle", rating: 3, book: book_10)
 
 
 book_11 = Book.create(title: "The Immortalists", pages: 352, year: 2018, thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51Hr9CCR8FL._SX329_BO1,204,203,200_.jpg")
