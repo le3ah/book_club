@@ -41,13 +41,25 @@ describe 'user show page' do
     expect(current_path).to eq(book_path(book_1))
   end
 
-  # it "links to corresponding author show page" do
-  #   book_1 = Book.create(title: "To Kill a Mockingbird", pages: 281, year: 1960,)
-  #   author_1 = book_1.authors.create(name: "Harper Lee")
-  #
-  #   visit author_path(author_1)
-  #   binding.pry
-  #   click_link "#{author_1.name}"
-  #   expect(current_path).to eq(author_path(author_1))
-  # end
+  it "links to corresponding author show page" do
+    # author_1 = Author.create(name: "Harper Lee")
+    # author_1.books.create(title: "To Kill a Mockingbird", pages: 281, year: 1960)
+    # author_1.books.create(title: "Black Friday", pages: 300, year: 2000)
+    # author_1.books.create(title: "Home Sweet Home", pages: 100, year: 1980)
+    book_1 = Book.create(title: "To Kill a Mockingbird", pages: 281, year: 1960)
+    book_2 = Book.create(title: "Black Friday", pages: 300, year: 2000)
+    author_1 = book_1.authors.create(name: "Harper Lee")
+    book_2.authors.create(name: ["Carl Marx", "Matilda Binum"])
+
+    visit author_path(author_1)
+
+    click_link "#{author_1.name}"
+
+    expect(current_path).to eq(author_path(author_1))
+    author_1.books.each do |book|
+      expect(page).to have_content(book.title)
+      expect(page).to have_content(book.year)
+      expect(page).to have_content(book.pages)
+    end
+  end
 end

@@ -1,1 +1,8 @@
-<%= @author.name %>
+<%= link_to "#{@author.name}", author_path(@author) %>
+<% @author.books.each do |book| %>
+<ul>
+  <li><%= book.title %></li>
+  <li><%= book.year %></li>
+  <li><%= book.pages %></li>
+</ul>
+<% end %>
