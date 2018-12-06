@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'user show page' do
+describe 'book show page' do
   it 'user can see book details' do
     book_1 = Book.create(title: "To Kill a Mockingbird", pages: 281, year: 1960,)
     book_1.authors.create(name: "Harper Lee")
@@ -39,13 +39,13 @@ describe 'user show page' do
 
     click_link "#{book_1.title}"
     expect(current_path).to eq(book_path(book_1))
-  end
 
+
+  end
+end
+
+describe 'author show page' do
   it "links to corresponding author show page" do
-    # author_1 = Author.create(name: "Harper Lee")
-    # author_1.books.create(title: "To Kill a Mockingbird", pages: 281, year: 1960)
-    # author_1.books.create(title: "Black Friday", pages: 300, year: 2000)
-    # author_1.books.create(title: "Home Sweet Home", pages: 100, year: 1980)
     book_1 = Book.create(title: "To Kill a Mockingbird", pages: 281, year: 1960)
     book_2 = Book.create(title: "Black Friday", pages: 300, year: 2000)
     author_1 = book_1.authors.create(name: "Harper Lee")
@@ -60,6 +60,29 @@ describe 'user show page' do
       expect(page).to have_content(book.title)
       expect(page).to have_content(book.year)
       expect(page).to have_content(book.pages)
+    end
+  end
+end
+
+describe 'user show page' do
+  it "links to corresponding user show page" do
+
+    book_1 = Book.create(title: "Kiss the Girls", pages: 464, year: 1995, thumbnail: "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Kiss_The_Girls_book_cover.jpg/220px-Kiss_The_Girls_book_cover.jpg")
+    user_1 = User.create(name: "MicJagger")
+    user_1.reviews.create(title: "Great Read!", description: "Wow!! Pleasantly surprised.", rating: 5, book: book_1)
+
+    book_2 = Book.create(title: "The Hiding Place", pages: 241, year: 1971, thumbnail: "https://g.christianbook.com/dg/product/cbd/f400/56696.jpg")
+    user_1.reviews.create(title: "Intense", description: "I cried...hard.", rating: 4, book: book_2)
+
+    visit book_path(book_1)
+
+    click_link "#{user_1.name}"
+
+    expect(current_path).to eq(user_path(user_1))
+    user_1.reviews.each do |review|
+      expect(page).to have_content(review.title)
+      expect(page).to have_content(review.description)
+      expect(page).to have_content(review.rating)
     end
   end
 end

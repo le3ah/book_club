@@ -57,7 +57,7 @@ user_7 = User.create(name: "Leah")
 user_13 = User.create(name: "Grandma Jan")
 review_7 = user_7.reviews.create(title: "Sweet", description: "Clever and heart-warming.  Will read again.", rating: 5, book: book_7)
 review_13 = user_13.reviews.create(title: "Special", description: "Bought this as a gift for my grandson Ethan. He enjoyed it very much and I was touched by its insightful, gentle storyline. Beautiful book!", rating: 5, book: book_7)
-review_14 = user_6.revieww.create(title: "insightful", description: "I would recommend this book as a gift for children or an adult who is having some trouble enjoying the ride!", rating: 5, book: book_7)
+review_14 = user_6.reviews.create(title: "insightful", description: "I would recommend this book as a gift for children or an adult who is having some trouble enjoying the ride!", rating: 5, book: book_7)
 
 book_8 = Book.create(title: "Lincoln in the Bardo", pages: 368, year: 2017, thumbnail: "https://i.mgtbk.nl/boeken/9780525511083-480x600.jpg")
 author_8 = book_8.authors.create(name: "George Saunders")

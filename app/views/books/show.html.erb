@@ -1,13 +1,13 @@
 <%= @book.title %>
 <%= @book.pages %>
 <% @book.authors.each do |author| %>
-<%= author.name %>
+<p><%= link_to "#{author.name}", author_path(author) %></p>
 <% end %>
 
 <% @book.reviews.each do |review| %>
 <ul>
 <li><%= review.title %></li>
-<li><%= review.user.name %></li>
+<li><%= link_to review.user.name, user_path(review.user) %></li>
 <li><%= review.rating %></li>
 <li><%= review.description %></li>
 </ul>
