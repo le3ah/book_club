@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-describe 'new form' do
+describe 'new author form' do
   it 'should create new book' do
     book_title = "See Spot Run"
     book_author = 'Billy Madison'
 
-    visit '/books/new'
+    visit new_book_path
 
     fill_in :book_title, with: book_title
     fill_in :book_year, with: 1974
@@ -16,6 +16,27 @@ describe 'new form' do
     expect(current_path).to eq(books_path)
     expect(page).to have_content(book_title)
     expect(page).to have_content(book_author)
+  end
+end
+
+describe 'new user form' do
+  it 'should create a new review' do
+    review_title = "A little off-putting"
+    user_name = "Rockstar1"
+    review_description = "Slow start, but I enjoyed it overall."
+
+    visit new_book_review_path
+
+    fill_in :user_review_title, with: review_title
+    fill_in :user_name, with: user_name
+    fill_in :user_review_rating, with: 3
+    fill_in :user_review_description, with: review_description
+    click_on 'Create Review'
+
+    expect(current_path).to eq(book_path(book))
+    expect(page).to have_content(review_title)
+    expect(page).to have_content(user_name)
+    expect(page).to have_content(review_description)
 
   end
 end
