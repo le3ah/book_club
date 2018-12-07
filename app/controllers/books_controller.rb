@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
 
   def new
-
+    @book = Book.new()
   end
 
   def create
@@ -16,7 +16,7 @@ class BooksController < ApplicationController
     authors = bp[:authors].split(',')
     arr = []
     authors.each do |author|
-        arr << Author.find_or_create_by(name: author)
+        arr << Author.find_or_create_by(name: author.titlecase)
       end
       bp[:authors] = arr
       Book.create(bp)
