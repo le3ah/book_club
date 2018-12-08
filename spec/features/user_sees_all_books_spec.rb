@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'user_index' do
+describe 'book_index' do
   it 'user can see all books' do
     book_1 = Book.create(title: "To Kill a Mockingbird", pages: 281, year: 1960,)
     author_1 = book_1.authors.create(name: "Harper Lee")
@@ -25,5 +25,10 @@ describe 'user_index' do
     expect(page).to have_content(author_3.name)
     expect(page).to have_content("Pages: #{book_3.pages}")
     expect(page).to have_content("Year: #{book_3.year}")
+
+    expect(page).to have_content("Average Rating: #{book_1.avg_rating}")
+    expect(page).to have_content("Total Reviews: #{book_1.reviews_count}")
+
+    within "#stats"
   end
 end

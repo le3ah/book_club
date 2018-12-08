@@ -4,6 +4,8 @@
 <h2><%= link_to "#{book.title}", book_path(book)%></h2>
 <p>Pages: <%= book.pages %></p>
 <p>Year: <%= book.year %></p>
+<p>Average Rating: <%= book.avg_rating %></p>
+<p>Total Reviews: <%= book.reviews_count %></p>
 <img src=<%= book.thumbnail %> alt="picture of book">
 <% book.authors.each do |author| %>
 <p><%= link_to "#{author.name}", author_path(author) %></p>
