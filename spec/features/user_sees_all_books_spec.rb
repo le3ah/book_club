@@ -25,5 +25,7 @@ describe 'user_index' do
     expect(page).to have_content(author_3.name)
     expect(page).to have_content("Pages: #{book_3.pages}")
     expect(page).to have_content("Year: #{book_3.year}")
+
+    expect(page).to have_content("Average Rating: #{book_1.avg_rating}")
   end
 end
