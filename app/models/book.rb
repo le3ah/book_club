@@ -8,4 +8,8 @@ class Book < ApplicationRecord
   def avg_rating
     reviews.average(:rating).to_f.round(1)
   end
+
+  def reviews_count
+    reviews.size
+  end
 end
