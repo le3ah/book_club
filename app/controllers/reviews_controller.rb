@@ -7,11 +7,17 @@ class ReviewsController < ApplicationController
 
   def create
     rp = review_params
-    User.find_or_create_by(name: rp[:user])
+    @user = User.find_or_create_by(name: rp[:user])
     @book = Book.find(params[:book_id])
     @book.reviews.create(rp)
+    @review.book_id = @book.id
+    @review.user_id = @user.id
 
-    redirect_to new_book_review_path
+    if @review.save
+      redirect_to book_path(@review.book)
+    else
+      render :new
+    end 
   end
 
   private
