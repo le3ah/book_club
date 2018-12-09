@@ -1,3 +1,4 @@
+<html style="background:url(/images/grass_book.jpeg) no-repeat center center fixed; font-family: fantasy;"
 <%= form_for [@book, @review] do |f| %>
 <%= f.hidden_field :book_id, value: @book.id %>
 <%= f.label :title %>
@@ -9,4 +10,4 @@
 <%= f.label :description %>
 <%= f.text_field :description %>
 <%= f.submit %>
-<% end %>
+</html><% end %>
