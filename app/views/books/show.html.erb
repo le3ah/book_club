@@ -1,7 +1,8 @@
-<%= @book.title %>
-<%= @book.pages %>
+<html style="background:url(/images/books_to_fly.jpg) no-repeat center center fixed; font-family: fantasy;">
+<h1><%= @book.title %></h1>
+<p>pages: <%= @book.pages %></p>
 <% @book.authors.each do |author| %>
-<p><%= link_to "#{author.name}", author_path(author) %></p>
+<h2><%= link_to "#{author.name}", author_path(author) %></h2>
 <% end %>
 
 <% @book.reviews.each do |review| %>
@@ -11,4 +12,4 @@
 <li><%= review.rating %></li>
 <li><%= review.description %></li>
 </ul>
-<% end %>
+</html><% end %>
