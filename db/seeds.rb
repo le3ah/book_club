@@ -92,3 +92,10 @@ user_12 = User.create(name: "Roberts' Bookshelf")
 review_12 = user_12.reviews.create(title: "Meh", description: "just okay", rating: 2, book: book_12)
 
 book_13 = Book.create(title: "Unlikely Pair", pages: 135, year: 1776, authors:[author_1, author_2])
+review_13 = user_12.reviews.create(title: "Weird", description: "don't get it", rating: 2, book: book_13)
+
+book_14 = Book.create(title: "The Serpent of Venice", pages: 336, year: 2014, authors: [author_6], thumbnail: "https://images-na.ssl-images-amazon.com/images/I/510UdA82jpL._SX327_BO1,204,203,200_.jpg")
+review_14 = user_1.reviews.create(title: "okay", description: "slowwwww", rating: 3, book: book_14)
+
+book_15 = Book.create(title: "Fool", pages: 356, year: 2009, authors: [author_6], thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51z9pcNETHL._SX330_BO1,204,203,200_.jpg")
+review_15 = user_12.reviews.create(title: "Funny!", description: "unexpected!", rating: 4, book: book_15)
