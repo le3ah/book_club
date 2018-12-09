@@ -55,6 +55,8 @@ describe 'book_index' do
 
     expect(page).to have_content("Average Rating: #{book_1.avg_rating}")
     expect(page).to have_content("Total Reviews: #{book_1.reviews_count}")
-
+    expect(page).to have_content("Highest Rated Books:")
+    # expect(page).to have_content("Lowest Rated Books: #{}")
+    # expect(page).to have_content("Top Reviewers: #{}")
   end
 end
