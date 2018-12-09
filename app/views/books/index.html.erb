@@ -1,10 +1,23 @@
 <br>
 <h1>* The Collection *</h1>
 <br>
-<% @books.each do |book| %>
+
+<h2>Statistics</h2>
+<p>Highest Rated Books: </p>
+<% @books.highest_rated_3.each do |book| %>
+<%= "#{book.title} #{book.avg_rating}" %>
+<% end %>
+<p>Lowest Rated Books: </p>
+<% @books.lowest_rated_3.each do |book| %>
+<%= "#{book.title} #{book.avg_rating}" %>
+<% end %>
+
+
 <div class="container">
+<% @books.each do |book| %>
+
 <header><h2><%= link_to "#{book.title}", book_path(book)%></h2></header>
-<% binding.pry %>
+
 <main><img src=<%= book.thumbnail %> alt="picture of book"></main>
 <aside><p>Pages: <%= book.pages %></p>
 <p>Year: <%= book.year %></p>
@@ -13,6 +26,7 @@
 <% book.authors.each do |author| %>
 <footer><h3><%= link_to "#{author.name}", author_path(author) %></h3></footer>
 <% end %>
-<nav><%= link_to 'Add New Book', new_book_path %></nav>
+<% end %>
+<%= link_to 'Add New Book', new_book_path %>
 <br>
-</div><% end %>
+</div>
