@@ -4,6 +4,7 @@
 <% @books.each do |book| %>
 <div class="container">
 <header><h2><%= link_to "#{book.title}", book_path(book)%></h2></header>
+<% binding.pry %>
 <main><img src=<%= book.thumbnail %> alt="picture of book"></main>
 <aside><p>Pages: <%= book.pages %></p>
 <p>Year: <%= book.year %></p>
