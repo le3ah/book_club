@@ -1,3 +1,4 @@
+
 <br>
 <h1>* The Collection *</h1>
 <br>
@@ -12,28 +13,28 @@
 <p>Lowest Rated Books: </p>
 <% @books.lowest_rated_3.each do |book| %>
 <ul>
-<%= "#{book.title}, Rating: #{book.avg_rating}" %>
+  <%= "#{book.title}, Rating: #{book.avg_rating}" %>
 </ul>
 <% end %>
 <p>Top Reviewers: </p>
 
 <div class="container">
 
-<% @books.each do |book| %>
+  <% @books.each do |book| %>
 
-<header><h2><%= link_to "#{book.title}", book_path(book)%></h2></header>
+  <header><h2><%= link_to "#{book.title}", book_path(book)%></h2></header>
 
-<main><img src=<%= book.thumbnail %> alt="picture of book"></main>
-<aside><p>Pages: <%= book.pages %></p>
-<p>Year: <%= book.year %></p>
-<p>Total Reviews: <%= book.reviews_count %></p>
-<p>Average Rating: <%= book.avg_rating %></p></aside>
-<% book.authors.each do |author| %>
-<footer><h3><%= link_to "#{author.name}", author_path(author) %></h3></footer>
-<% end %>
-<% end %>
-<nav>
-  <%= link_to 'Add New Book', new_book_path %>
-</nav>
-<br>
-</div>
+  <main><img src=<%= book.thumbnail %> alt="picture of book"></main>
+  <aside><p>Pages: <%= book.pages %></p>
+    <p>Year: <%= book.year %></p>
+    <p>Total Reviews: <%= book.reviews_count %></p>
+    <p>Average Rating: <%= book.avg_rating %></p></aside>
+    <% book.authors.each do |author| %>
+    <footer><h3><%= link_to "#{author.name}", author_path(author) %></h3></footer>
+    <% end %>
+    <% end %>
+    <nav>
+      <%= link_to 'Add New Book', new_book_path %>
+    </nav>
+    <br>
+  </div>

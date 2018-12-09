@@ -24,24 +24,28 @@ book_2 = Book.create(title: "The Hiding Place", pages: 241, year: 1971, thumbnai
 author_2 = book_2.authors.create(name: "Corrie Ten Boom")
 user_2 = User.create(name: "DregT")
 review_2 = user_2.reviews.create(title: "Intense", description: "I cried...hard.", rating: 4, book: book_2)
+review_21 = user_1.reviews.create(title: "Hot Takes", description: "The best.", rating: 5, book: book_2)
 
 
 book_3 = Book.create(title: "The Boy in the Striped Pajamas", pages: 216, year: 2006, thumbnail: "http://prodimage.images-bn.com/pimages/9780385751537_p0_v4_s1200x630.jpg")
 author_3 = book_3.authors.create(name: "John Boyne")
 user_3 = User.create(name: "Lori")
 review_3 = user_3.reviews.create(title: "Blown Away", description: "Masterfully written. A delight for all ages.", rating: 5, book: book_3)
+review_22 = user_2.reviews.create(title: "Amazing", description: "Dumbfounded", rating: 5, book: book_3)
 
 
 book_4 = Book.create(title: "Silas Marner", pages: 140 , year: 1861, thumbnail: "https://images.gr-assets.com/books/1347323528l/54539.jpg")
 author_4 = book_4.authors.create(name: "George Eliot")
 user_4 = User.create(name: "Jae Bird")
 review_4 = user_4.reviews.create(title: "Tough", description: "I had a hard time making it all the way through.", rating: 2, book: book_4)
+review_23 = user_3.reviews.create(title: "Hmm", description: "I'll try again later'.", rating: 1, book: book_4)
 
 
 book_5 = Book.create(title: "To Kill a Mockingbird", pages: 281, year: 1960, thumbnail: "https://images-na.ssl-images-amazon.com/images/I/71FxgtFKcQL.jpg")
 author_5 = book_5.authors.create(name: "Harper Lee")
 user_5 = User.create(name: "jimmthomas78")
 review_5 = user_5.reviews.create(title: "Never gets old.", description: "This is my fourth time reading this book, and it just keeps getting better.", rating: 5, book: book_5)
+review_24 = user_4.reviews.create(title: "Gold", description: "This should be a movie!.", rating: 5, book: book_5)
 
 
 
@@ -49,6 +53,7 @@ book_6 = Book.create(title: "Lamb: The Gospel According to Biff, Christ's Childh
 author_6 = book_6.authors.create(name: "Christopher Moore")
 user_6 = User.create(name: "AnnieB")
 review_6 = user_6.reviews.create(title: "Hilarious", description: "I laughed, but I also cried.  It crosses the line a little.", rating: 3, book: book_6)
+review_25 = user_1.reviews.create(title: "Perfect", description: "A++", rating: 5, book: book_6)
 
 
 book_7 = Book.create(title: "Ethan the Raindrop", pages: 26, year: 2015, thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51LhoDAfIlL._SX258_BO1,204,203,200_.jpg")
@@ -84,18 +89,23 @@ book_11 = Book.create(title: "The Immortalists", pages: 352, year: 2018, thumbna
 author_11 = book_11.authors.create(name: "Chloe Benjamin")
 user_11 = User.create(name: "Jackson5")
 review_11 = user_11.reviews.create(title: "Feeling Immortal", description: "Enjoyed every page.", rating: 5, book: book_11)
+review_26 = user_3.reviews.create(title: "Not bad", description: "I didn't read the whole thing ", rating: 2, book: book_11)
 
 
 book_12 = Book.create(title: "The Woman in the Window", pages: 240, year: 2018, thumbnail: "https://images-na.ssl-images-amazon.com/images/I/91ulS5E%2BmXL.jpg")
 author_12 = book_12.authors.create(name: "A.J. Finn")
 user_12 = User.create(name: "Roberts' Bookshelf")
 review_12 = user_12.reviews.create(title: "Meh", description: "just okay", rating: 2, book: book_12)
+review_27 = user_7.reviews.create(title: "Boom", description: "crazy good", rating: 5, book: book_12)
 
-book_13 = Book.create(title: "Unlikely Pair", pages: 135, year: 1776, authors:[author_1, author_2])
+book_13 = Book.create(title: "Unlikely Pair", pages: 135, year: 1776, authors:[author_1, author_2], thumbnail: "https://www.sunnyskyz.com/images/blogpics/dog-chimp1.jpg")
 review_13 = user_12.reviews.create(title: "Weird", description: "don't get it", rating: 2, book: book_13)
+review_28 = user_2.reviews.create(title: "Um", description: "what?", rating: 1, book: book_13)
 
 book_14 = Book.create(title: "The Serpent of Venice", pages: 336, year: 2014, authors: [author_6], thumbnail: "https://images-na.ssl-images-amazon.com/images/I/510UdA82jpL._SX327_BO1,204,203,200_.jpg")
 review_14 = user_1.reviews.create(title: "okay", description: "slowwwww", rating: 3, book: book_14)
+review_29 = user_2.reviews.create(title: "nah", description: "too much Shakespeare", rating: 2, book: book_14)
 
 book_15 = Book.create(title: "Fool", pages: 356, year: 2009, authors: [author_6], thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51z9pcNETHL._SX330_BO1,204,203,200_.jpg")
 review_15 = user_12.reviews.create(title: "Funny!", description: "unexpected!", rating: 4, book: book_15)
+review_30 = user_3.reviews.create(title: "Fun!", description: "great!", rating: 4, book: book_15)
