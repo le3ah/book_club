@@ -11,7 +11,7 @@ describe 'nav' do
     expect(current_path).to eq(root_path)
 
     visit books_path
-    click_link "New Book"
+    click_link "Add New Book"
     expect(current_path).to eq(new_book_path)
 
     # click_link "Create Review"
