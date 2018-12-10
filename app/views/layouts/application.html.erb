@@ -4,7 +4,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/normalize.css" type="text/css" />
     <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
     <title>BookClub</title>
     <%= csrf_meta_tags %>
 
@@ -13,12 +17,14 @@
   </head>
 
   <body>
-    <div class="navbar">
-      <ul>
-        <li><%= link_to "books", books_path %></li>
-        <li><%= link_to "home", root_path %></li>
-      </ul>
+    <div class="ui inverted brown menu">
+      <li class="item"><%= link_to "books", books_path %></li>
+      <li class="item"><%= link_to "home", root_path %></li>
     </div>
+    <!-- <div class="navbar">
+      <ul>
+      </ul>
+    </div> -->
     <%= yield %>
   </body>
 </html>

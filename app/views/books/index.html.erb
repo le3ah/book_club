@@ -3,45 +3,69 @@
   <h1>* The Collection *</h1>
   <br>
   <div id="stats">
-    <h2>Statistics</h2>
-    <p>Highest Rated Books: </p>
-    <% @books.highest_rated_3.each do |book| %>
-    <ul>
-      <li><%= "#{book.title}, Rating: #{book.avg_rating}" %></li>
-    </ul>
-    <% end %>
-    <br>
-    <br>
-    <p>Lowest Rated Books: </p>
-    <% @books.lowest_rated_3.each do |book| %>
-    <ul>
-      <li><%= "#{book.title}, Rating: #{book.avg_rating}" %></li>
-    </ul>
-    <% end %>
-    <br>
-    <br>
-    <p>Top Reviewers: </p>
-    <ul>
-    <% @users.top_3_reviewers.each do |user| %>
+    <h2 class="ui centered header">Statistics</h2>
+    <div class="ui centered grid">
+        <div class="ui five wide column">
+          <div class="ui huge centered header">
+            <p>Highest Rated Books: </p>
+          </div>
 
-    <li><%= "Username: #{user.name}, Total number of reviews: #{user.reviews.count}"  %></li>
-  </ul>
-    <% end %>
+          <div class="ui ordered list">
+            <% @books.highest_rated_3.each do |book| %>
+            <div class="item"><%= "#{book.title}, Rating: #{book.avg_rating}" %></div>
+            <% end %>
+          </div>
+        </div>
+        <div class="five wide column">
+          <div class="ui huge centered header">
+            <p>Lowest Rated Books: </p>
+          </div>
+          <div class="ui ordered list">
+            <% @books.lowest_rated_3.each do |book| %>
+              <div class="item"><%= "#{book.title}, Rating: #{book.avg_rating}" %></div>
+            <% end %>
+          </div>
+        </div>
+        <div class="five wide column">
+          <div class="ui huge header">
+            <p>Top Reviewers: </p>
+          </div>
+          <div class="ui ordered list">
+              <% @users.top_3_reviewers.each do |user| %>
+                <div class="item"><%= "Username: #{user.name}, Total number of reviews: #{user.reviews.count}"  %></div>
+              <% end %>
+          </div>
+        </div>
+    </div>
+    <br>
+    <br>
     <br>
     <br>
   </div>
 </div>
-  <div class="card-columns">
+<div id="card-body" class="ui six centered cards">
     <% @books.each do |book| %>
-    <h2><%= link_to "#{book.title}", book_path(book)%></h2>
-    <img src=<%= book.thumbnail %> alt="picture of book">
-    <% book.authors.each do |author| %>
-    <h3><%= link_to "#{author.name}", author_path(author) %></h3>
-    <p>Year: <%= book.year %></p>
-    <p>Pages: <%= book.pages %></p>
-    <p>Total Reviews: <%= book.reviews_count %></p>
-    <p>Average Rating: <%= book.avg_rating %></p>
-    <% end %>
+    <div class="card-columns card">
+      <div class="header">
+        <h2><%= link_to "#{book.title}", book_path(book)%></h2>
+      </div>
+      <div class="image">
+        <img src=<%= book.thumbnail %> alt="picture of book">
+      </div>
+      <% book.authors.each do |author| %>
+      <div class="content">
+        <div class="meta">
+          <h3><%= link_to "#{author.name}", author_path(author) %></h3>
+        </div>
+      </div>
+      <div class="description">
+        <p>Year: <%= book.year %></p>
+        <p>Pages: <%= book.pages %></p>
+        <p>Total Reviews: <%= book.reviews_count %></p>
+        <p>Average Rating: <%= book.avg_rating %></p>
+      </div>
+      <% end %>
+    </div>
     <% end %>
   </div>
   <%= link_to 'Add New Book', new_book_path %>
