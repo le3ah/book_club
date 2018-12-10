@@ -80,7 +80,7 @@ describe Book, type: :model do
 
       expect(Book.highest_rated_3.map { |book| book.title}).to eq(["Ethan the Raindrop", "See Spot Run", "Testing"])
       expect(Book.lowest_rated_3.map { |book| book.title}).to eq(["Lamb: The Gospel According to Biff, Christ's Childhood Pal", "To Kill a Mockingbird", "Another"])
-      expect(User.most_reviews.map { |user| user.name}).to eq (["MicJagger", "Leah", "Good Reader"])
+      expect(User.top_3_reviewers.map { |user| user.name}).to eq (["MicJagger", "Leah", "Good Reader"])
     end
   end
 

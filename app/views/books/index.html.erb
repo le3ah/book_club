@@ -21,6 +21,14 @@
     <br>
     <br>
     <p>Top Reviewers: </p>
+    <ul>
+    <% @users.top_3_reviewers.each do |user| %>
+
+    <li><%= "Username: #{user.name}, Total number of reviews: #{user.reviews.count}"  %></li>
+  </ul>
+    <% end %>
+    <br>
+    <br>
   </div>
 </div>
   <div class="card-columns">
