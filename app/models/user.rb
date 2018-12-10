@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates_presence_of :name
 
   def self.most_reviews
+  
     User.arrange.first(3)
   end
 
