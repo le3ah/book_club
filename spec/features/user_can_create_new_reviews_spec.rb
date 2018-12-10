@@ -10,6 +10,7 @@ describe 'new review form' do
     review_description = "Slow start, but I enjoyed it overall."
 
     visit new_book_review_path(book_1.id)
+    # visit '/books/book_1/new_review'
 
     fill_in 'review[title]', with: review_title
     fill_in 'review[user]', with: user_name

@@ -6,6 +6,7 @@ describe 'new author form' do
     book_author = 'Billy Madison'
 
     visit new_book_path
+    # visit '/books/new'
 
     fill_in :book_title, with: book_title
     fill_in :book_year, with: 1974
