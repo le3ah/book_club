@@ -4,8 +4,8 @@
   <h1><%= @book.title %></h1>
   <% @book.authors.each do |author| %>
   <h1><%= link_to "Author: #{author.name}", author_path(author) %></h1>
-  <p>pages: <%= @book.pages %></p>
   <% end %>
+  <p>pages: <%= @book.pages %></p>
   <div class="stats">
     <h5>Top Reviews</h5>
     <% @book.top_3_reviews.each do |review| %>

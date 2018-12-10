@@ -1,14 +1,14 @@
 class User < ApplicationRecord
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :books, through: :reviews
   validates_presence_of :name
 
-  def self.most_reviews
-  
-    User.arrange.first(3)
+  def self.top_3_reviewers
+
+    User.most_reviews.first(3)
   end
 
-  def self.arrange
+  def self.most_reviews
     User.select('users.*, count(reviews) as reviews_count').joins(:reviews).group(:user_id, :id).order('reviews_count DESC')
   end
 end

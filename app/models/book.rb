@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
-  has_many :book_authors
-  has_many :reviews
+  has_many :book_authors, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :users, through: :reviews
   has_many :authors, through: :book_authors
   validates_presence_of :title, :pages, :year
@@ -37,5 +37,7 @@ class Book < ApplicationRecord
     Book.select('books.*, avg(rating) as avg_rating, count(reviews) as reviews_count').joins(:reviews).group(:book_id, :id).order("#{column} #{direction}")
   end
 
-
+  def multiple_authors(id)
+    authors.where.not(id: id)
+  end
 end
