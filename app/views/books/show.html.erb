@@ -37,6 +37,8 @@
     <br>
   </div>
   <br>
+  <div id="all-reviews">
+
   <h2>All Book Reviews: </h2>
   <% @book.reviews.each do |review| %>
   <ul>
@@ -49,7 +51,7 @@
     <li><%= "Review: #{review.description}" %></li>
   </ul>
   <% end %>
-
+</div>
 
 </div>
 </html>
