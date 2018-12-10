@@ -70,3 +70,7 @@ li  {
   display: inline;
   padding: 15px;
 }
+
+#card-body {
+  background-color: #eddcb1;
+}

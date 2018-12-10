@@ -37,4 +37,19 @@ describe 'delete book review' do
       expect(page).to_not have_content(book_1.title)
     end
   end
+
+  describe 'delete author' do
+    it 'can delete an author' do
+      author_1 = Author.create(name: "Jimmy Jones")
+      author_2 = Author.create(name: "Molly Percaset")
+      author_3 = Author.create(name: "Handy Man Tim")
+
+      visit author_path(author_1)
+
+      click_link 'Delete Author'
+
+      expect(current_path).to eq(books_path)
+      expect(page).to_not have_content(author_1.name)
+    end
+  end
 end
