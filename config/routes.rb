@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   root 'welcome#index'
   # get '/books', to: 'books#index'
 
-  resources :books, :only => [:index, :show, :new, :create] do
+  resources :books, :only => [:index, :show, :new, :create, :destroy] do
     resources :reviews, :only => [:new, :create]
   end
+  resources :reviews, :only => [:destroy]
   resources :authors, :only => [:show]
   resources :users, :only => [:new, :show, :create]
 end
