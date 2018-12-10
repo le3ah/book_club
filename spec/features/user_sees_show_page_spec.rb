@@ -49,7 +49,7 @@ describe 'author show page' do
     author_1 = book_1.authors.create(name: "Harper Lee")
     # book_2.authors.create(name: ["Carl Marx", "Matilda Binum"])
 
-    visit author_path(author_1)
+    visit book_path(book_1)
 
     click_link "#{author_1.name}"
 
@@ -71,16 +71,31 @@ describe 'user show page' do
 
     book_2 = Book.create(title: "The Hiding Place", pages: 241, year: 1971, thumbnail: "https://g.christianbook.com/dg/product/cbd/f400/56696.jpg")
     user_1.reviews.create(title: "Intense", description: "I cried...hard.", rating: 4, book: book_2)
-
     visit book_path(book_1)
 
-    click_link "#{user_1.name}"
+    within "#all-reviews" do
+      click_link "#{user_1.name}"
 
-    expect(current_path).to eq(user_path(user_1))
-    user_1.reviews.each do |review|
-      expect(page).to have_content(review.title)
-      expect(page).to have_content(review.description)
-      expect(page).to have_content(review.rating)
+      expect(current_path).to eq(user_path(user_1))
     end
   end
+
+    it 'should see review info on user show page' do
+      book_1 = Book.create(title: "Kiss the Girls", pages: 464, year: 1995, thumbnail: "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Kiss_The_Girls_book_cover.jpg/220px-Kiss_The_Girls_book_cover.jpg")
+      user_1 = User.create(name: "MicJagger")
+      user_1.reviews.create(title: "Great Read!", description: "Wow!! Pleasantly surprised.", rating: 5, book: book_1)
+
+      book_2 = Book.create(title: "The Hiding Place", pages: 241, year: 1971, thumbnail: "https://g.christianbook.com/dg/product/cbd/f400/56696.jpg")
+      user_1.reviews.create(title: "Intense", description: "I cried...hard.", rating: 4, book: book_2)
+
+      visit user_path(user_1)
+
+      user_1.reviews.each do |review|
+
+        expect(page).to have_content("Review Title: #{review.title}")
+        expect(page).to have_content("Review: #{review.description}")
+        expect(page).to have_content("Rating: #{review.rating}")
+
+      end
+    end
 end
