@@ -1,40 +1,52 @@
+<div class="collection">
 
-<br>
-<h1>* The Collection *</h1>
-<br>
 
-<h2>Statistics</h2>
-<p>Highest Rated Books: </p>
-<% @books.highest_rated_3.each do |book| %>
-<ul>
-  <li><%= "#{book.title}, Rating: #{book.avg_rating}" %></li>
-</ul>
-<% end %>
-<p>Lowest Rated Books: </p>
-<% @books.lowest_rated_3.each do |book| %>
-<ul>
-  <%= "#{book.title}, Rating: #{book.avg_rating}" %>
-</ul>
-<% end %>
-<p>Top Reviewers: </p>
+  <br>
+  <h1>* The Collection *</h1>
+  <br>
+  <div id="stats">
 
-<div class="container">
-
-  <% @books.each do |book| %>
-
-  <header><h2><%= link_to "#{book.title}", book_path(book)%></h2></header>
-
-  <main><img src=<%= book.thumbnail %> alt="picture of book"></main>
-  <aside><p>Pages: <%= book.pages %></p>
-    <p>Year: <%= book.year %></p>
-    <p>Total Reviews: <%= book.reviews_count %></p>
-    <p>Average Rating: <%= book.avg_rating %></p></aside>
-    <% book.authors.each do |author| %>
-    <footer><h3><%= link_to "#{author.name}", author_path(author) %></h3></footer>
+    <h2>Statistics</h2>
+    <p>Highest Rated Books: </p>
+    <% @books.highest_rated_3.each do |book| %>
+    <ul>
+      <li><%= "#{book.title}, Rating: #{book.avg_rating}" %></li>
+    </ul>
     <% end %>
+    <br>
+    <br>
+    <p>Lowest Rated Books: </p>
+    <% @books.lowest_rated_3.each do |book| %>
+    <ul>
+      <li><%= "#{book.title}, Rating: #{book.avg_rating}" %></li>
+    </ul>
     <% end %>
+    <br>
+    <br>
+    <p>Top Reviewers: </p>
+
+  </div>
+  <div class="container">
+    <div class="card-columns">
+      <div class="book-detail"
+      <% @books.each do |book| %>
+
+      <header><h2><%= link_to "#{book.title}", book_path(book)%></h2></header>
+
+      <main><img src=<%= book.thumbnail %> alt="picture of book"></main>
+      <% book.authors.each do |author| %>
+      <h3><%= link_to "#{author.name}", author_path(author) %></h3>
+      <p>Year: <%= book.year %></p>
+      <p>Pages: <%= book.pages %></p>
+      <p>Total Reviews: <%= book.reviews_count %></p>
+      <p>Average Rating: <%= book.avg_rating %></p></aside>
+      <% end %>
+      <% end %>
+    </div>
+    </div>
     <nav>
       <%= link_to 'Add New Book', new_book_path %>
     </nav>
     <br>
   </div>
+</div>

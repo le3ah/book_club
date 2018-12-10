@@ -1,17 +1,23 @@
-<h3><%= "Reviewer: #{@user.name}" %></h3>
+<html class="show_page">
+<div class="show_page">
 
-<% @user.reviews.each do |review| %>
-<ul>
+  <h3><%= "Reviewer: #{@user.name}" %></h3>
 
-<li><%= "Book Reviewed: #{review.book.title}" %></li>
-<br>
-<li><%= "Review Title: #{review.title}" %></li>
-<br>
-<li><%= "Review: #{review.description}" %></li>
-<br>
-<li><%= "Rating: #{review.rating}" %></li>
-<br>
-<br>
-</ul>
-<br>
-<% end %>
+  <% @user.reviews.each do |review| %>
+  <ul>
+
+    <li><%= "Book Reviewed: #{review.book.title}" %></li>
+    <br>
+    <li><%= "Review Title: #{review.title}" %></li>
+    <br>
+    <li><%= "Review: #{review.description}" %></li>
+    <br>
+    <li><%= "Rating: #{review.rating}" %></li>
+    <br>
+    <br>
+  </ul>
+  <br>
+  <% end %>
+
+</div>
+</html>
