@@ -1,11 +1,8 @@
 <div class="collection">
-
-
   <br>
   <h1>* The Collection *</h1>
   <br>
   <div id="stats">
-
     <h2>Statistics</h2>
     <p>Highest Rated Books: </p>
     <% @books.highest_rated_3.each do |book| %>
@@ -24,30 +21,20 @@
     <br>
     <br>
     <p>Top Reviewers: </p>
-
-    
-  </div>
-  <div class="container">
-    <div class="card-columns">
-      <div class="book-detail"
-      <% @books.each do |book| %>
-
-      <header><h2><%= link_to "#{book.title}", book_path(book)%></h2></header>
-
-      <main><img src=<%= book.thumbnail %> alt="picture of book"></main>
-      <% book.authors.each do |author| %>
-      <h3><%= link_to "#{author.name}", author_path(author) %></h3>
-      <p>Year: <%= book.year %></p>
-      <p>Pages: <%= book.pages %></p>
-      <p>Total Reviews: <%= book.reviews_count %></p>
-      <p>Average Rating: <%= book.avg_rating %></p></aside>
-      <% end %>
-      <% end %>
-    </div>
-    </div>
-    <nav>
-      <%= link_to 'Add New Book', new_book_path %>
-    </nav>
-    <br>
   </div>
 </div>
+  <div class="card-columns">
+    <% @books.each do |book| %>
+    <h2><%= link_to "#{book.title}", book_path(book)%></h2>
+    <img src=<%= book.thumbnail %> alt="picture of book">
+    <% book.authors.each do |author| %>
+    <h3><%= link_to "#{author.name}", author_path(author) %></h3>
+    <p>Year: <%= book.year %></p>
+    <p>Pages: <%= book.pages %></p>
+    <p>Total Reviews: <%= book.reviews_count %></p>
+    <p>Average Rating: <%= book.avg_rating %></p>
+    <% end %>
+    <% end %>
+  </div>
+  <%= link_to 'Add New Book', new_book_path %>
+  <br>

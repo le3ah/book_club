@@ -6,6 +6,7 @@
 
 body {
   font-family: fantasy;
+  background-color: #eddcb1;
 }
 
 h1 {
@@ -15,44 +16,26 @@ h1 {
 .container  {
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: auto;
+  grid-template-areas: 'header header header';
 }
+
 .card-columns {
   padding-left: 20px;
   @include media-breakpoint-only(lg)  {
     column-count: 3;
   }
 }
+
 .entrance {
       text-align: center;
 }
+
 .collection {
   background-color: #eddcb1;
 }
+
 .show_page {
   background-color: #eddcb1;
-}
-header{
-    grid-area: header;
-    background-color: none;
-}
-
-nav{
-    grid-area: nav;
-    background-color: none;
-}
-
-.book-detail {
-  border: 1;
-}
-main{
-    grid-area: main;
-    background-color: none;
-}
-
-footer{
-    grid-area: footer;
-    background-color: #3C1518;
-    text-align: center;
 }
 
 img {
