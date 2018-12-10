@@ -16,4 +16,25 @@ describe 'delete book review' do
 
     expect(page).to_not have_content(review_15.title)
   end
+
+  # describe 'delete book' do
+  #   it 'can delete a book' do
+  #     book_1 = Book.create(title: "A Maybe Then a Yes", pages: 300, year: 2000)
+  #     book_2 = Book.create(title: "Sometimes", pages: 215, year: 2002)
+  #     book_3 = Book.create(title: "Hey", pages: 301, year: 2003)
+  #
+  #     visit books_path
+  #
+  #     expect(page).to have_content(book_1.title)
+  #     expect(page).to have_content(book_2.title)
+  #     expect(page).to have_content(book_3.title)
+  #
+  #     visit book_path(book_1)
+  #
+  #     click_link 'Delete Book'
+  #
+  #     expect(current_path).to eq(books_path)
+  #     expect(page).to_not have_content(book_1.title)
+  #   end
+  # end
 end
