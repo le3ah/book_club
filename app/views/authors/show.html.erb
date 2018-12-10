@@ -1,12 +1,15 @@
-<html style="background:url(/images/grass_book.jpeg) no-repeat center center fixed; font-family: fantasy;"
+<html style="background:url(/images/grass_book.jpeg) no-repeat center center fixed; font-family: fantasy; color: white;"
 <br>
 <br>
 <%= link_to "#{@author.name}", author_path(@author) %>
 <% @author.books.each do |book| %>
 <ul>
   <li><%= book.title %></li>
-  <li><%= book.year %></li>
-  <li><%= book.pages %></li>
+  <br>
+  <li><%= "Year published: #{book.year }"%></li>
+  <br>
+  <li><%= "Number of pages: #{book.pages}" %></li>
+
 </ul>
 <% end %>
 </html>

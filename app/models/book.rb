@@ -13,6 +13,18 @@ class Book < ApplicationRecord
     reviews.size
   end
 
+  def sort_reviews(direction)
+    reviews.order("rating #{direction}")
+  end
+
+  def top_3_reviews
+    sort_reviews('DESC').first(3)
+  end
+
+  def bottom_3_reviews
+    sort_reviews('ASC').first(3)
+  end
+
   def self.highest_rated_3
     Book.arrange('avg_rating', 'DESC').first(3)
   end
@@ -25,5 +37,5 @@ class Book < ApplicationRecord
     Book.select('books.*, avg(rating) as avg_rating, count(reviews) as reviews_count').joins(:reviews).group(:book_id, :id).order("#{column} #{direction}")
   end
 
-  
+
 end

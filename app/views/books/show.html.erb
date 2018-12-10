@@ -1,16 +1,55 @@
-<html style="background:url(/images/books_to_fly.jpg) no-repeat center center fixed; font-family: fantasy;">
-<h1><%= @book.title %></h1>
-<p>pages: <%= @book.pages %></p>
-<% @book.authors.each do |author| %>
-<h2><%= link_to "#{author.name}", author_path(author) %></h2>
-<% end %>
+<html class="show_page">
+<div class="show_page">
 
-<% @book.reviews.each do |review| %>
-<ul>
-<li><%= review.title %></li>
-<li><%= link_to review.user.name, user_path(review.user) %></li>
-<li><%= review.rating %></li>
-<li><%= review.description %></li>
-</ul>
-<% end %>
+  <h1><%= @book.title %></h1>
+  <% @book.authors.each do |author| %>
+  <h1><%= link_to "Author: #{author.name}", author_path(author) %></h1>
+  <p>pages: <%= @book.pages %></p>
+  <% end %>
+  <div class="stats">
+    <h5>Top Reviews</h5>
+    <% @book.top_3_reviews.each do |review| %>
+    <ul>
+
+      <%= link_to "#{review.user.name}", user_path(review.user) %>
+      <%= review.title %>
+      <%= "Rating: #{review.rating}" %>
+      <br>
+    </ul>
+    <% end %>
+    <br>
+    <br>
+    <h5>Worst Reviews</h5>
+    <% @book.bottom_3_reviews.each do |review| %>
+    <ul>
+
+      <%= link_to "#{review.user.name}", user_path(review.user) %>
+      <%= review.title %>
+      <%= "Rating: #{review.rating}" %>
+      <br>
+    </ul>
+    <% end %>
+    <br>
+    <br>
+    <h5>Overall Average Rating</h5>
+    <%= "#{@book.avg_rating} out of 5.0 possible" %>
+    <br>
+    <br>
+  </div>
+  <br>
+  <h2>All Book Reviews: </h2>
+  <% @book.reviews.each do |review| %>
+  <ul>
+    <li><%= link_to review.user.name, user_path(review.user) %></li>
+    <br>
+    <li><%= "Review Title: #{review.title}" %></li>
+    <br>
+    <li><%= "Rating: #{review.rating} out of 5" %></li>
+    <br>
+    <li><%= "Review: #{review.description}" %></li>
+  </ul>
+  <% end %>
+
+
+</div>
 </html>

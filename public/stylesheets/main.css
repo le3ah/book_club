@@ -1,6 +1,10 @@
-body {
+.welcome {
   background: url("/images/abstract_book_pic.jpg") no-repeat center center fixed;
   background-size: cover;
+  color: white;
+}
+
+body {
   font-family: fantasy;
 }
 
@@ -8,19 +12,25 @@ h1 {
   text-align: center;
 }
 
-.container{
-  display: grid;
-  grid-template-rows: 1fr 5fr 1fr;
-  grid-template-columns: 2fr 5fr 3fr;
-  grid-template-areas:
-    "header header header"
-    "nav main aside"
-    "footer footer footer";
-  grid-gap: .30em;
-  border: groove black;
-  margin: 15px;
+.container  {
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: auto;
 }
-
+.card-columns {
+  padding-left: 20px;
+  @include media-breakpoint-only(lg)  {
+    column-count: 3;
+  }
+}
+.entrance {
+      text-align: center;
+}
+.collection {
+  background-color: #eddcb1;
+}
+.show_page {
+  background-color: #eddcb1;
+}
 header{
     grid-area: header;
     background-color: none;
@@ -31,15 +41,12 @@ nav{
     background-color: none;
 }
 
+.book-detail {
+  border: 1;
+}
 main{
     grid-area: main;
     background-color: none;
-}
-
-aside{
-    grid-area: aside;
-    background-color: none;
-    color: cornsilk;
 }
 
 footer{
@@ -79,5 +86,4 @@ ul  {
 li  {
   display: inline;
   padding: 15px;
-  background-color: #3C1518;
 }
