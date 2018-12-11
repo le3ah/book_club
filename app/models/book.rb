@@ -17,6 +17,14 @@ class Book < ApplicationRecord
     reviews.order("rating #{direction}")
   end
 
+  def self.sort_reviews_number(direction)
+    Book.arrange("reviews_count", "#{direction}")
+  end
+
+  def self.num_pages_sort(direction)
+    Book.order("pages #{direction}")
+  end
+
   def top_3_reviews
     sort_reviews('DESC').first(3)
   end
@@ -29,16 +37,19 @@ class Book < ApplicationRecord
     Book.arrange('avg_rating', 'DESC').first(3)
   end
 
-  def self.highest_rated_average(direction)
-    Book.arrange("avg_rating", "#{direction}")
-  end
-
   def self.lowest_rated_3
     Book.arrange('avg_rating', 'ASC').first(3)
   end
 
+  def self.highest_rated_average(direction)
+    Book.arrange("avg_rating", "#{direction}")
+  end
+
   def self.arrange(column, direction)
-    Book.select('books.*, avg(rating) as avg_rating, count(reviews) as reviews_count').joins(:reviews).group(:book_id, :id).order("#{column} #{direction}")
+    Book.select('books.*, avg(rating) as avg_rating, count(reviews) as reviews_count')
+    .joins(:reviews)
+    .group(:book_id, :id)
+    .order("#{column} #{direction}")
   end
 
   def multiple_authors(id)

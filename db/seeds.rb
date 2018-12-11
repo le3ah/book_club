@@ -37,6 +37,8 @@ user_2.reviews.create(title: "Crazy", description: "did not expect that", rating
 user_3.reviews.create(title: "Boo", description: "never again", rating: 1, book: book_1)
 user_4.reviews.create(title: "ok", description: "I didn't hate it", rating: 2, book: book_1)
 user_5.reviews.create(title: "???", description: "what???", rating: 2, book: book_1)
+user_6.reviews.create(title: "!!!", description: "yesssss!!!???", rating: 4, book: book_1)
+user_7.reviews.create(title: "hmmmmmmm", description: "....!!!???", rating: 3, book: book_1)
 
 book_2 = Book.create(title: "The Hiding Place", pages: 241, year: 1971, thumbnail: "https://g.christianbook.com/dg/product/cbd/f400/56696.jpg")
 author_2 = book_2.authors.create(name: "Corrie Ten Boom")
@@ -44,8 +46,9 @@ user_2.reviews.create(title: "Intense", description: "I cried...hard.", rating: 
 user_1.reviews.create(title: "Hot Takes", description: "The best.", rating: 5, book: book_2)
 user_3.reviews.create(title: "Hey", description: "books?", rating: 1, book: book_2)
 user_13.reviews.create(title: "!!!", description: "wowoowowowowow", rating: 5, book: book_2)
-user_14.reviews.create(title: "Jeez", description: "unusual.", rating: 2, book: book_2)
+user_12.reviews.create(title: "Jeez", description: "unusual.", rating: 2, book: book_2)
 user_15.reviews.create(title: "More!!", description: "The best ever.", rating: 5, book: book_2)
+user_11.reviews.create(title: "No More!!", description: "I can't take it.", rating: 3, book: book_2)
 
 book_3 = Book.create(title: "The Boy in the Striped Pajamas", pages: 216, year: 2006, thumbnail: "http://prodimage.images-bn.com/pimages/9780385751537_p0_v4_s1200x630.jpg")
 author_3 = book_3.authors.create(name: "John Boyne")
