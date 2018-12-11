@@ -1,24 +1,36 @@
 <body class="show_page">
-<br>
-<br>
-<h2><%= @author.name %></h2>
-<br>
-<br>
-<br>
-<% @author.books.each do |book| %>
-<ul>
-  <li><%= link_to "#{book.title}", book_path(book) %></li>
   <br>
-  <li><%= "Year published: #{book.year }"%></li>
   <br>
-  <li><%= "Number of pages: #{book.pages}" %></li>
-  <% if book.multiple_authors(@author.id).count > 0 %>
-  <% book.multiple_authors(@author.id).each do |co_author| %>
+  <h2><%= @author.name %></h2>
+  <br>
+  <br>
+  <br>
+  <% @author.books.each do |book| %>
+  <% if book.top_3_reviews.first %>
+  <ul>
+    <p>Author's highest rating: </p>
+    <li><%= "Review Title: #{book.top_3_reviews.first.title}" %></li>
+    <li><%= "Rating: #{book.top_3_reviews.first.rating}" %></li>
+    <li><%= "Reviewer: #{book.top_3_reviews.first.user.name}" %></li>
+  </ul>
+  <% end %>
+  <ul>
+    <li><%= link_to "#{book.title}", book_path(book) %></li>
+    <br>
+    <li><%= "Year published: #{book.year }"%></li>
+    <br>
+    <li><%= "Number of pages: #{book.pages}" %></li>
+    <% if book.multiple_authors(@author.id).count > 0 %>
+    <% book.multiple_authors(@author.id).each do |co_author| %>
 
-  <p>Co-author: <%= link_to "#{co_author.name}", author_path(co_author) %></p>
+    <p>Co-author: <%= link_to "#{co_author.name}", author_path(co_author) %></p>
+    <% end %>
+
+    <% end %>
+  </ul>
   <% end %>
-  <% end %>
-</ul>
-<% end %>
-<%= link_to "Delete Author", author_path(@author), method: :delete %>
+
+
+  <%= link_to "Delete Author", author_path(@author), method: :delete %>
+  <br>
 </body>

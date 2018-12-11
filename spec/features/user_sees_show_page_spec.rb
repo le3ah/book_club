@@ -45,9 +45,7 @@ end
 describe 'author show page' do
   it "links to corresponding author show page" do
     book_1 = Book.create(title: "To Kill a Mockingbird", pages: 281, year: 1960)
-    # book_2 = Book.create(title: "Black Friday", pages: 300, year: 2000)
     author_1 = book_1.authors.create(name: "Harper Lee")
-    # book_2.authors.create(name: ["Carl Marx", "Matilda Binum"])
 
     visit book_path(book_1)
 
@@ -75,7 +73,7 @@ describe 'author show page' do
     review_6 = user_3.reviews.create(title: "Cool", description: "Givita1", rating: 1, book: book_1)
 
     visit author_path(author_1)
-    
+
     expect(page).to have_content(review_4.title)
     expect(page).to have_content(review_4.rating)
     expect(page).to have_content(user_1.name)
