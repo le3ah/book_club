@@ -9,7 +9,6 @@
           <div class="ui huge centered header">
             <p>Highest Rated Books: </p>
           </div>
-
           <div class="ui ordered list">
             <% @books.highest_rated_3.each do |book| %>
             <div class="item"><%= "#{book.title}, Rating: #{book.avg_rating}" %></div>
@@ -36,13 +35,13 @@
               <% end %>
           </div>
         </div>
+      </div>
+    <br>
+    <br>
+    <br>
+    <br>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
   </div>
-</div>
 <div id="card-body" class="ui five centered cards">
     <% @books.each do |book| %>
     <div class="card-columns card">
@@ -50,7 +49,7 @@
         <h2><%= link_to "#{book.title}", book_path(book)%></h2>
       </div>
       <div class="image">
-        <img src=<%= book.thumbnail %> alt="picture of book">
+        <img class="medium rounded image"src=<%= book.thumbnail %> alt="picture of book">
       </div>
       <div class="content">
         <div class="meta">

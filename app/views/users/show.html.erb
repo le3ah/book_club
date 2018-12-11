@@ -1,11 +1,12 @@
 <body class="show_page">
-
   <h3><%= "Reviewer: #{@user.name}" %></h3>
 
   <% @user.reviews.each do |review| %>
+  <div id="card-body" class="ui card">
   <ul>
-
-    <li><%= "Book Reviewed: #{review.book.title}" %></li>
+    <div class="header">
+      <li><%= "Book Reviewed: #{review.book.title}" %></li>
+    </div>
     <br>
     <li><%= "Review Title: #{review.title}" %></li>
     <br>
@@ -16,8 +17,10 @@
     <br>
   </ul>
   <br>
+  <div class="ui basic brown button">
   <%= link_to "Delete Review", review_path(review), method: :delete %>
+  </div>
   <br>
+</div>
   <% end %>
-
 </body>
