@@ -1,8 +1,13 @@
 <body class="show_page">
   <h3><%= "Reviewer: #{@user.name}" %></h3>
-
+  <div class="reviews_sort">
+    <li class="item"><%= link_to "sort reviews newest first", user_path(sort: "reviews_newest") %></li>
+    <br>
+    <li class="item"><%= link_to "sort reviews oldest first", user_path(sort: "reviews_oldest") %></li>
+  </div>
   <% @user.reviews.each do |review| %>
   <div id="card-body" class="ui card">
+
   <ul>
     <div class="header">
       <li><%= "Book Reviewed: #{review.book.title}" %></li>
@@ -20,6 +25,7 @@
   <div class="ui basic brown button">
   <%= link_to "Delete Review", review_path(review), method: :delete %>
   </div>
+
   <br>
 </div>
   <% end %>
