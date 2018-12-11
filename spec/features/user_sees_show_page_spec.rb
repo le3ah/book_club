@@ -60,6 +60,27 @@ describe 'author show page' do
       expect(page).to have_content(book.pages)
     end
   end
+  it "can see highest rated review" do
+    book_1 = Book.create(title: "To Kill a Mockingbird", pages: 281, year: 1960)
+    author_1 = book_1.authors.create(name: "Harper Lee")
+    book_2 = Book.create(title: "To Kill a Mockingbird II", pages: 286, year: 1969, authors: [author_1])
+    user_1 = User.create(name: "MicJagger")
+    user_2 = User.create(name: "Sal")
+    user_3 = User.create(name: "Megan")
+    review_1 = user_1.reviews.create(title: "Great Read!", description: "Wow!! Pleasantly surprised.", rating: 3, book: book_1)
+    review_2 = user_2.reviews.create(title: "Hey", description: "Wow!! Not Great", rating: 3, book: book_1)
+    review_3 = user_3.reviews.create(title: "Cool", description: "Givita1", rating: 2, book: book_1)
+    review_4 = user_1.reviews.create(title: "Great Read!", description: "Wow!! Pleasantly surprised.", rating: 5, book: book_2)
+    review_5 = user_2.reviews.create(title: "Hey", description: "Wow!! Not Great", rating: 4, book: book_1)
+    review_6 = user_3.reviews.create(title: "Cool", description: "Givita1", rating: 1, book: book_1)
+
+    visit author_path(author_1)
+    
+    expect(page).to have_content(review_4.title)
+    expect(page).to have_content(review_4.rating)
+    expect(page).to have_content(user_1.name)
+
+  end
 end
 
 describe 'user show page' do
