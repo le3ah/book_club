@@ -90,8 +90,28 @@ describe Book, type: :model do
       book_2 = Book.create(title: "Baby I got ya money", pages: 250, year: 2000)
 
       book_1.destroy
-      
+
       expect(Book.count).to eq(1)
+
+    end
+    it "sorts books by ascending rating" do
+      book_1 = Book.create(title: "A Maybe Then a Yes", pages: 300, year: 2000)
+      user_15 = User.create(name: "LadyBird")
+      user_11 = User.create(name: "Homey the Clown")
+      user_1 = User.create(name: "Morgan")
+
+      review_4 = user_15.reviews.create(title: "Great Read!", description: "Wow!! Pleasantly surprised.", rating: 5, book: book_1)
+      review_5 = user_11.reviews.create(title: "Read!", description: "Pleasant", rating: 5, book: book_1)
+
+      book_2 = Book.create(title: "Sometimes", pages: 215, year: 2002)
+      review_5 = user_11.reviews.create(title: "Excellent!", description: "More Please", rating: 4, book: book_2)
+      review_7 = user_1.reviews.create(title: "Ex!", description: "Please", rating: 4, book: book_2)
+
+      book_3 = Book.create(title: "Hey", pages: 301, year: 2003)
+      review_15 = user_1.reviews.create(title: "Can't Wait", description: "To do it again", rating: 3, book: book_3)
+      review_11 = user_15.reviews.create(title: "Wait", description: "again", rating: 3, book: book_3)
+
+      expect(Book.highest_rated_average("ASC")).to eq([book_3, book_2, book_1])
     end
   end
 

@@ -29,6 +29,10 @@ class Book < ApplicationRecord
     Book.arrange('avg_rating', 'DESC').first(3)
   end
 
+  def self.highest_rated_average(direction)
+    Book.arrange("avg_rating", "#{direction}")
+  end
+
   def self.lowest_rated_3
     Book.arrange('avg_rating', 'ASC').first(3)
   end

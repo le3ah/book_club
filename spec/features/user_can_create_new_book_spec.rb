@@ -68,6 +68,7 @@ describe 'new author form' do
     expect(page).to have_content("Pages can't be blank")
     expect(page).to have_content("Year can't be blank")
   end
+  
   xit 'should show default image if thumbnail not provided' do
     book_title = "See Spot Run"
     author_1 = 'Billy Madison'

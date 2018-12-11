@@ -15,7 +15,7 @@ class BooksController < ApplicationController
   def create
     bp = book_params
     unless bp[:thumbnail]
-      bp[:thumbnail] = "defaultimage.jpg"
+      bp[:thumbnail] = 'src="../images/irish_book.jpg"'
     end
     authors = bp[:authors].split(',')
     arr = []
