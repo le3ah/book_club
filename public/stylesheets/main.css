@@ -1,5 +1,5 @@
 .welcome {
-  background: url("/images/abstract_book_pic.jpg") no-repeat center center fixed;
+  background: url("/images/abstract_book_pic.jpg") no-repeat center center;
   background-size: cover;
   color: white;
 }
@@ -13,6 +13,10 @@ h1 {
   text-align: center;
 }
 
+.item {
+  padding: 0px;
+}
+
 .container  {
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: auto;
@@ -20,14 +24,14 @@ h1 {
 }
 
 .card-columns {
-  padding-left: 20px;
+  padding-left: 10px;
   @include media-breakpoint-only(lg)  {
     column-count: 3;
   }
 }
 
 .entrance {
-      text-align: center;
+  text-align: center;
 }
 
 .collection {
@@ -36,6 +40,8 @@ h1 {
 
 .show_page {
   background-color: #eddcb1;
+  padding: 1px;
+  margin: 1px;
 }
 
 img {
@@ -44,6 +50,7 @@ img {
   max-height:300px;
   width: auto;
   height: auto;
+  padding: 1px;
 }
 
 a:link {

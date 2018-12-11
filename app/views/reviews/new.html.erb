@@ -1,4 +1,4 @@
-<html class="show_page">
+<body class="show_page">
 <%= form_for [@book, @review] do |f| %>
 <%= f.hidden_field :book_id, value: @book.id %>
 <%= f.label :title %>
@@ -14,4 +14,4 @@
 <%= f.text_field :description %>
 <%= f.submit %>
 <% end %>
-</html>
+</body>
