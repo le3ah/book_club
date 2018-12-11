@@ -20,7 +20,12 @@
     <div class="ui inverted brown menu">
       <li class="item"><%= link_to "books", books_path %></li>
       <li class="item"><%= link_to "home", root_path %></li>
-      <li class="item"><%= link_to "sort books by ascending rating", books_path %></li>
+      <li class="item"><%= link_to "sort books by ascending rating", books_path(sort: "avg_rating_ASC") %></li>
+      <li class="item"><%= link_to "sort books by descending rating", books_path(sort: "avg_rating_DESC") %></li>
+      <li class="item"><%= link_to "sort books by pages ascending", books_path(sort: "num_pages_ASC") %></li>
+      <li class="item"><%= link_to "sort books by pages descending", books_path(sort: "num_pages_DESC") %></li>
+      <li class="item"><%= link_to "sort books by review total ascending", books_path(sort: "num_reviews_ASC") %></li>
+      <li class="item"><%= link_to "sort books by review total descending", books_path(sort: "num_reviews_DESC") %></li>
     </div>
     <!-- <div class="navbar">
       <ul>

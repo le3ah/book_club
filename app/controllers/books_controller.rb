@@ -2,6 +2,21 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @users = User.all
+
+    if params[:sort] == "avg_rating_ASC"
+      @books = @books.highest_rated_average('ASC')
+    elsif params[:sort] == "avg_rating_DESC"
+      @books = @books.highest_rated_average('DESC')
+    elsif params[:sort] == "num_pages_ASC"
+      @books = @books.num_pages_sort('ASC')
+    elsif params[:sort] == "num_pages_DESC"
+      @books = @books.num_pages_sort('DESC')
+    elsif params[:sort] == "num_reviews_ASC"
+      @books = @books.sort_reviews_number('ASC')
+    elsif params[:sort] == "num_reviews_DESC"
+      @books = @books.sort_reviews_number('DESC')
+    end
+
   end
 
   def show

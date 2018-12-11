@@ -52,10 +52,11 @@
       <div class="image">
         <img src=<%= book.thumbnail %> alt="picture of book">
       </div>
-      <% book.authors.each do |author| %>
       <div class="content">
         <div class="meta">
+          <% book.authors.each do |author| %>
           <h3><%= link_to "#{author.name}", author_path(author) %></h3>
+          <% end %>
         </div>
       </div>
       <div class="description">
@@ -64,7 +65,6 @@
         <p>Total Reviews: <%= book.reviews_count %></p>
         <p>Average Rating: <%= book.avg_rating %></p>
       </div>
-      <% end %>
     </div>
     <% end %>
   </div>
