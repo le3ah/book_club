@@ -1,11 +1,11 @@
 <body class="show_page">
   <h3><%= "Reviewer: #{@user.name}" %></h3>
   <div class="reviews_sort">
-    <li class="item"><%= link_to "sort reviews newest first", user_path(sort: "reviews_newest") %></li>
+    <li class="item"><%= link_to "sort reviews newest first", user_path(@user, sort: "reviews_newest") %></li>
     <br>
-    <li class="item"><%= link_to "sort reviews oldest first", user_path(sort: "reviews_oldest") %></li>
+    <li class="item"><%= link_to "sort reviews oldest first", user_path(@user, sort: "reviews_oldest") %></li>
   </div>
-  <% @user.reviews.each do |review| %>
+  <% @reviews.each do |review| %>
   <div id="card-body" class="ui card">
 
   <ul>
@@ -19,6 +19,7 @@
     <br>
     <li><%= "Rating: #{review.rating}" %></li>
     <br>
+    <li>Created at: <%= review.created_at.strftime("%B %d, %Y") %></li>
     <br>
   </ul>
   <br>

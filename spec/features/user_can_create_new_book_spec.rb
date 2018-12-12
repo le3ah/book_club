@@ -68,8 +68,8 @@ describe 'new author form' do
     expect(page).to have_content("Pages can't be blank")
     expect(page).to have_content("Year can't be blank")
   end
-  
-  xit 'should show default image if thumbnail not provided' do
+
+  it 'should show default image if thumbnail not provided' do
     book_title = "See Spot Run"
     author_1 = 'Billy Madison'
     author_2 = 'Happy Gilmore'
@@ -83,9 +83,8 @@ describe 'new author form' do
     fill_in :book_authors, with: "#{author_1}, #{author_2}"
     click_on 'Create Book'
 
+    book_image = 'src="../images/irish_book.jpg"'
     expect(current_path).to eq(books_path)
-    expect(page).to have_content(book_title)
-    expect(page).to have_content(author_1)
-    expect(page).to have_content(author_2)
+    expect(page).to have_css("img[src='#{Book.last.thumbnail}']")
   end
 end

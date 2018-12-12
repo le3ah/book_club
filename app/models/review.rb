@@ -6,11 +6,11 @@ class Review < ApplicationRecord
   belongs_to  :book
   belongs_to  :user
 
-  def self.oldest
+  def self.newest
     Review.order("created_at DESC")
   end
 
-  def self.newest
+  def self.oldest
     Review.order("created_at ASC")
   end
 end

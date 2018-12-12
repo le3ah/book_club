@@ -11,4 +11,6 @@ class User < ApplicationRecord
   def self.most_reviews
     User.select('users.*, count(reviews) as reviews_count').joins(:reviews).group(:user_id, :id).order('reviews_count DESC')
   end
+
+  
 end

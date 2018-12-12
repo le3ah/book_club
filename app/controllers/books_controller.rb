@@ -30,7 +30,7 @@ class BooksController < ApplicationController
   def create
     bp = book_params
     unless bp[:thumbnail]
-      bp[:thumbnail] = 'src="../images/irish_book.jpg"'
+      bp[:thumbnail] = 'https://www.learnforeignlanguageskills.com/user/categories/thumbnails/irish%20book.jpg'
     end
     authors = bp[:authors].split(',')
     arr = []

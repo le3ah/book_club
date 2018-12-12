@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20181205213738) do
     t.string "title"
     t.integer "pages"
     t.integer "year"
-    t.string "thumbnail"
+    t.string "thumbnail", default: "https://www.learnforeignlanguageskills.com/user/categories/thumbnails/irish%20book.jpg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
