@@ -29,9 +29,8 @@ class BooksController < ApplicationController
 
   def create
     bp = book_params
-    unless bp[:thumbnail]
-      bp[:thumbnail] = 'https://www.learnforeignlanguageskills.com/user/categories/thumbnails/irish%20book.jpg'
-    end
+    bp[:title] = bp[:title].titlecase
+  
     authors = bp[:authors].split(',')
     arr = []
     authors.each do |author|
@@ -40,7 +39,7 @@ class BooksController < ApplicationController
     bp[:authors] = arr
     @book = Book.create(bp)
     if @book.save
-      redirect_to books_path
+      redirect_to book_path(@book)
     else
       render :new
     end

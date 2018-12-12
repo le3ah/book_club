@@ -11,7 +11,7 @@
           </div>
           <div class="ui ordered list">
             <% @books.highest_rated_3.each do |book| %>
-            <div class="item"><%= "#{book.title}, Rating: #{book.avg_rating}" %></div>
+            <div class="item"><%= link_to "#{book.title}", book_path(book)%><%=", Rating: #{book.avg_rating}" %></div>
             <% end %>
           </div>
         </div>
@@ -21,7 +21,7 @@
           </div>
           <div class="ui ordered list">
             <% @books.lowest_rated_3.each do |book| %>
-              <div class="item"><%= "#{book.title}, Rating: #{book.avg_rating}" %></div>
+              <div class="item"><%= link_to "#{book.title}", book_path(book)%><%=", Rating: #{book.avg_rating}" %></div>
             <% end %>
           </div>
         </div>
@@ -31,7 +31,7 @@
           </div>
           <div class="ui ordered list">
               <% @users.top_3_reviewers.each do |user| %>
-                <div class="item"><%= "Username: #{user.name}, Total number of reviews: #{user.reviews.count}"  %></div>
+                <div class="item"><%= link_to "Username: #{user.name}", user_path(user)%><%=", Total number of reviews: #{user.reviews.count}"  %></div>
               <% end %>
           </div>
         </div>

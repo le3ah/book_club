@@ -3,7 +3,8 @@ class Book < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :users, through: :reviews
   has_many :authors, through: :book_authors
-  validates_presence_of :title, :pages, :year
+  validates :title, uniqueness: true, presence: true
+  validates_presence_of :pages, :year
 
   def avg_rating
     reviews.average(:rating).to_f.round(1)

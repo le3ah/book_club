@@ -11,7 +11,7 @@
     <p>Author's highest rating: </p>
     <li><%= "Review Title: #{book.top_3_reviews.first.title}" %></li>
     <li><%= "Rating: #{book.top_3_reviews.first.rating}" %></li>
-    <li><%= "Reviewer: #{book.top_3_reviews.first.user.name}" %></li>
+    <li>Reviewer: <%= link_to "#{book.top_3_reviews.first.user.name}", user_path(book.top_3_reviews.first.user_id) %></li>
   </ul>
   <% end %>
   <ul>
