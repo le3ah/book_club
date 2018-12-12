@@ -115,8 +115,8 @@ describe Book, type: :model do
       book_1 = Book.create(title: "A Maybe Then a Yes", pages: 300, year: 2000)
       book_2 = Book.create(title: "Baby I got ya money", pages: 250, year: 2000)
 
+      expect(Book.count).to eq(2)
       book_1.destroy
-
       expect(Book.count).to eq(1)
     end
 
