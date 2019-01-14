@@ -8,10 +8,8 @@ class AuthorsController < ApplicationController
     books = @author.books
     books.each do |book|
       book.destroy
-      if book.authors.count < 2
       end
-      @author.destroy
-    end
+    @author.destroy
     redirect_to books_path
   end
 end
