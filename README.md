@@ -8,7 +8,7 @@ A Turing School paired project created with Rails.
 
 We created an online application where users can browse and review books and authors. A user can add, update, or delete a book, a review, or an author.  Visitors may also sort books by a number of categories, including by total reviews, ascending or descending rating, and by number of pages.
 
-![Book Club](bookindex.jpg)
+![Book Club](bookindex.png)
 
 ## Learning Goals
 The primary goal of this challenge was learning how to set up many-to-many relationships and accessing attributes through multiple models.
