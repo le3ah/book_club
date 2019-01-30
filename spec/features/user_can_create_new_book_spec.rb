@@ -6,7 +6,6 @@ describe 'new author form' do
     book_author = 'billy madison'
 
     visit new_book_path
-    # visit '/books/new'
 
     fill_in :book_title, with: book_title
     fill_in :book_year, with: 1974
@@ -23,7 +22,6 @@ describe 'new author form' do
     author_2 = 'Happy Gilmore'
 
     visit new_book_path
-    # visit '/books/new'
 
     fill_in :book_title, with: book_title
     fill_in :book_year, with: 1974
@@ -42,7 +40,6 @@ describe 'new author form' do
     author_2 = 'Happy Gilmore'
 
     visit new_book_path
-    # visit '/books/new'
 
     fill_in :book_title, with: book_title
     fill_in :book_year, with: 1974
@@ -58,7 +55,6 @@ describe 'new author form' do
   it 'should create new book with multiple authors and a space' do
 
     visit new_book_path
-    # visit '/books/new'
 
     click_on 'Create Book'
 
@@ -73,7 +69,6 @@ describe 'new author form' do
     author_2 = 'Happy Gilmore'
 
     visit new_book_path
-    # visit '/books/new'
 
     fill_in :book_title, with: book_title
     fill_in :book_year, with: 1974
