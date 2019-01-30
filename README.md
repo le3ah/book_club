@@ -76,7 +76,8 @@ We used `rspec`, `capybara`, and `shoulda-matchers` for testing.
 
 ##### Example of a feature test:
 
-```  it 'should create new book with multiple authors and a space' do
+```  
+it 'should create new book with multiple authors and a space' do
     book_title = "See Spot Run"
     author_1 = 'Billy Madison'
     author_2 = 'Happy Gilmore'
